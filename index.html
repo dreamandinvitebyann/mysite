@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Արամ & Անի — Հրավեր</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #f8f3ee;
+      color: #3c302b;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          rgba(45, 32, 27, .42),
+          rgba(45, 32, 27, .58)
+        ),
+        url("https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=2000&q=85")
+        center / cover;
+    }
+
+    .hero-content {
+      color: white;
+      z-index: 2;
+      padding: 30px;
+      animation: fadeUp 1.5s ease;
+    }
+
+    .small-title {
+      font-size: 13px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-family: 'Marck Script', cursive;
+      font-size: clamp(75px, 14vw, 150px);
+      font-weight: 400;
+      line-height: .9;
+      margin-bottom: 20px;
+    }
+
+    .names {
+      font-size: clamp(25px, 5vw, 48px);
+      font-weight: 300;
+      letter-spacing: 4px;
+      margin-bottom: 30px;
+    }
+
+    .date {
+      font-size: 16px;
+      letter-spacing: 4px;
+    }
+
+    .scroll {
+      margin-top: 60px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      animation: bounce 2s infinite;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 90px 20px;
+    }
+
+    .container {
+      width: min(900px, 100%);
+      margin: auto;
+      text-align: center;
+    }
+
+    .subtitle {
+      color: #a57c63;
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      font-family: 'Marck Script', cursive;
+      font-size: 58px;
+      font-weight: 400;
+      color: #59443a;
+      margin-bottom: 25px;
+    }
+
+    .intro {
+      max-width: 650px;
+      margin: auto;
+      color: #71645d;
+      line-height: 2;
+      font-size: 15px;
+    }
+
+    /* DETAILS */
+
+    .details {
+      background: white;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 50px;
+    }
+
+    .detail-card {
+      padding: 35px 20px;
+      background: #f8f3ee;
+      border-radius: 15px;
+      transition: .3s;
+    }
+
+    .detail-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,.08);
+    }
+
+    .icon {
+      font-size: 35px;
+      margin-bottom: 15px;
+    }
+
+    .detail-card h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .detail-card p {
+      color: #776b64;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    /* COUNTDOWN */
+
+    .countdown-section {
+      background: #59443a;
+      color: white;
+    }
+
+    .countdown-section h2 {
+      color: white;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 45px;
+      flex-wrap: wrap;
+    }
+
+    .time-box {
+      width: 110px;
+      padding: 20px 10px;
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 10px;
+      background: rgba(255,255,255,.06);
+    }
+
+    .time-box span {
+      display: block;
+      font-size: 38px;
+      font-weight: 300;
+    }
+
+    .time-box small {
+      font-size: 10px;
+      letter-spacing: 2px;
+      opacity: .7;
+    }
+
+    /* LOCATION */
+
+    .location {
+      background: #f8f3ee;
+    }
+
+    .map-button {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 15px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      color: white;
+      background: #59443a;
+      transition: .3s;
+    }
+
+    .map-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.15);
+    }
+
+    /* RSVP */
+
+    .rsvp {
+      background: white;
+    }
+
+    .rsvp-form {
+      max-width: 500px;
+      margin: 40px auto 0;
+      text-align: left;
+    }
+
+    .rsvp-form input,
+    .rsvp-form select,
+    .rsvp-form textarea {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 15px;
+
+      border: 1px solid #ddd2c9;
+      border-radius: 8px;
+
+      background: #faf8f6;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .rsvp-form input:focus,
+    .rsvp-form select:focus,
+    .rsvp-form textarea:focus {
+      border-color: #a57c63;
+    }
+
+    .rsvp-form textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .rsvp-button {
+      width: 100%;
+      padding: 16px;
+
+      border: none;
+      border-radius: 50px;
+
+      background: #a57c63;
+      color: white;
+
+      font-family: inherit;
+      font-size: 14px;
+      cursor: pointer;
+
+      transition: .3s;
+    }
+
+    .rsvp-button:hover {
+      background: #8d6751;
+      transform: translateY(-2px);
+    }
+
+    .rsvp-button:disabled {
+      opacity: .6;
+      cursor: wait;
+    }
+
+    #formMessage {
+      margin-top: 20px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 50px 20px;
+      text-align: center;
+      background: #30231e;
+      color: white;
+    }
+
+    .footer-names {
+      font-family: 'Marck Script', cursive;
+      font-size: 45px;
+    }
+
+    .heart {
+      color: #d99a8c;
+      font-size: 25px;
+      margin: 10px;
+    }
+
+    footer p {
+      font-size: 12px;
+      opacity: .7;
+    }
+
+    /* PETALS */
+
+    .petal {
+      position: absolute;
+      top: -20px;
+
+      width: 10px;
+      height: 15px;
+
+      background: rgba(255,255,255,.75);
+
+      border-radius: 100% 0 100% 0;
+
+      animation: fall linear forwards;
+
+      z-index: 3;
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%,100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(10px);
+      }
+    }
+
+    @keyframes fall {
+      to {
+        transform:
+          translateY(110vh)
+          rotate(720deg);
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      section {
+        padding: 70px 18px;
+      }
+
+      .detail-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .countdown {
+        gap: 8px;
+      }
+
+      .time-box {
+        width: 75px;
+      }
+
+      .time-box span {
+        font-size: 27px;
+      }
+
+      .time-box small {
+        font-size: 8px;
+      }
+
+      h2 {
+        font-size: 50px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="small-title">
+        Մեր հատուկ օրը
+      </div>
+
+      <h1>Հրավեր</h1>
+
+      <div class="names">
+        Արամ & Անի
+      </div>
+
+      <div class="date">
+        12 • ՍԵՊՏԵՄԲԵՐ • 2026
+      </div>
+
+      <div class="scroll">
+        ՍԿՐՈԼ ԱՐԵՔ ↓
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- INTRO -->
+
+  <section>
+
+    <div class="container">
+
+      <div class="subtitle">
+        Սիրով հրավիրում ենք
+      </div>
+
+      <h2>
+        Միանալ մեզ
+      </h2>
+
+      <p class="intro">
+        Մեր կյանքի ամենակարևոր և գեղեցիկ օրերից մեկը
+        ցանկանում ենք կիսել հենց ձեզ հետ։
+        Ձեր ներկայությունը այս օրը մեզ համար կլինի
+        ամենագեղեցիկ նվերը։
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- DETAILS -->
+
+  <section class="details">
+
+    <div class="container">
+
+      <div class="subtitle">
+        Օրվա մանրամասները
+      </div>
+
+      <h2>
+        Ե՞րբ և որտե՞ղ
+      </h2>
+
+      <div class="detail-grid">
+
+        <div class="detail-card">
+
+          <div class="icon">
+            📅
+          </div>
+
+          <h3>
+            Ամսաթիվ
+          </h3>
+
+          <p>
+            Շաբաթ<br>
+            12 Սեպտեմբեր 2026
+          </p>
+
+        </div>
+
+
+        <div class="detail-card">
+
+          <div class="icon">
+            ⏰
+          </div>
+
+          <h3>
+            Ժամը
+          </h3>
+
+          <p>
+            Հյուրերի դիմավորում<br>
+            18:00
+          </p>
+
+        </div>
+
+
+        <div class="detail-card">
+
+          <div class="icon">
+            📍
+          </div>
+
+          <h3>
+            Վայրը
+          </h3>
+
+          <p>
+            Beautiful Garden<br>
+            Երևան, Հայաստան
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- COUNTDOWN -->
+
+  <section class="countdown-section">
+
+    <div class="container">
+
+      <div class="subtitle">
+        Մինչև մեր օրը
+      </div>
+
+      <h2>
+        Մնացել է
+      </h2>
+
+      <div class="countdown">
+
+        <div class="time-box">
+          <span id="days">00</span>
+          <small>ՕՐ</small>
+        </div>
+
+        <div class="time-box">
+          <span id="hours">00</span>
+          <small>ԺԱՄ</small>
+        </div>
+
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <small>ՐՈՊԵ</small>
+        </div>
+
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <small>ՎԱՅՐԿՅԱՆ</small>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- LOCATION -->
+
+  <section class="location">
+
+    <div class="container">
+
+      <div class="subtitle">
+        Հանդիպման վայրը
+      </div>
+
+      <h2>
+        Սիրով սպասում ենք
+      </h2>
+
+      <p class="intro">
+        Մեզ սպասում են գեղեցիկ երեկո,
+        ջերմ հանդիպումներ, երաժշտություն
+        և անմոռանալի պահեր։
+      </p>
+
+      <!-- ՓՈԽԻՐ ԱՅՍ ՀՂՈՒՄԸ ՔՈ GOOGLE MAPS ՀՂՄԱՆ ՀԵՏ -->
+
+      <a
+        class="map-button"
+        href="https://www.google.com/maps"
+        target="_blank"
+      >
+        📍 Բացել քարտեզը
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- RSVP -->
+
+  <section class="rsvp">
+
+    <div class="container">
+
+      <div class="subtitle">
+        Հաստատել մասնակցությունը
+      </div>
+
+      <h2>
+        Կգա՞ք մեզ հետ
+      </h2>
+
+      <p class="intro">
+        Խնդրում ենք լրացնել ձևը և հաստատել
+        Ձեր մասնակցությունը։
+      </p>
+
+
+      <form
+        class="rsvp-form"
+        id="rsvpForm"
+      >
+
+        <!-- NAME -->
+
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Ձեր անունը և ազգանունը"
+          required
+        >
+
+
+        <!-- ATTENDANCE -->
+
+        <select
+          id="attendance"
+          name="attendance"
+          required
+        >
+
+          <option value="">
+            Կմասնակցե՞ք
+          </option>
+
+          <option value="yes">
+            Այո, սիրով կմասնակցեմ
+          </option>
+
+          <option value="no">
+            Ցավոք, չեմ կարող
+          </option>
+
+        </select>
+
+
+        <!-- GUEST COUNT -->
+
+        <select
+          id="guests"
+          name="guests"
+          required
+        >
+
+          <option value="">
+            Հյուրերի քանակը
+          </option>
+
+          <option value="1">1 հոգի</option>
+          <option value="2">2 հոգի</option>
+          <option value="3">3 հոգի</option>
+          <option value="4">4 հոգի</option>
+          <option value="5">5 հոգի</option>
+          <option value="6">6 հոգի</option>
+          <option value="7">7 հոգի</option>
+          <option value="8">8 հոգի</option>
+          <option value="9">9 հոգի</option>
+          <option value="10">10 հոգի</option>
+
+        </select>
+
+
+        <!-- MESSAGE -->
+
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Հաղորդագրություն (ըստ ցանկության)"
+        ></textarea>
+
+
+        <!-- SUBMIT -->
+
+        <button
+          type="submit"
+          class="rsvp-button"
+        >
+          Հաստատել մասնակցությունը
+        </button>
+
+
+        <div id="formMessage"></div>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="footer-names">
+      Արամ & Ани
+    </div>
+
+    <div class="heart">
+      ♥
+    </div>
+
+    <p>
+      Սիրով սպասում ենք Ձեզ
+    </p>
+
+  </footer>
+
+
+  <script>
+
+    /* ==========================================
+       COUNTDOWN
+    ========================================== */
+
+    const eventDate =
+      new Date("September 12, 2026 18:00:00").getTime();
+
+
+    function updateCountdown() {
+
+      const now =
+        new Date().getTime();
+
+      const distance =
+        eventDate - now;
+
+
+      if (distance <= 0) {
+
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+
+        return;
+      }
+
+
+      const days =
+        Math.floor(
+          distance /
+          (1000 * 60 * 60 * 24)
+        );
+
+
+      const hours =
+        Math.floor(
+          (distance %
+            (1000 * 60 * 60 * 24)) /
+          (1000 * 60 * 60)
+        );
+
+
+      const minutes =
+        Math.floor(
+          (distance %
+            (1000 * 60 * 60)) /
+          (1000 * 60)
+        );
+
+
+      const seconds =
+        Math.floor(
+          (distance %
+            (1000 * 60)) /
+          1000
+        );
+
+
+      document.getElementById("days")
+        .textContent =
+        String(days).padStart(2, "0");
+
+
+      document.getElementById("hours")
+        .textContent =
+        String(hours).padStart(2, "0");
+
+
+      document.getElementById("minutes")
+        .textContent =
+        String(minutes).padStart(2, "0");
+
+
+      document.getElementById("seconds")
+        .textContent =
+        String(seconds).padStart(2, "0");
+    }
+
+
+    updateCountdown();
+
+    setInterval(
+      updateCountdown,
+      1000
+    );
+
+
+    /* ==========================================
+       RSVP
+    ========================================== */
+
+    const rsvpForm =
+      document.getElementById("rsvpForm");
+
+    const formMessage =
+      document.getElementById("formMessage");
+
+
+    rsvpForm.addEventListener(
+      "submit",
+      async function(event) {
+
+        event.preventDefault();
+
+
+        const button =
+          rsvpForm.querySelector("button");
+
+
+        const data = {
+
+          name:
+            document
+              .getElementById("name")
+              .value
+              .trim(),
+
+          attendance:
+            document
+              .getElementById("attendance")
+              .value,
+
+          guests:
+            document
+              .getElementById("guests")
+              .value,
+
+          message:
+            document
+              .getElementById("message")
+              .value
+              .trim()
+
+        };
+
+
+        button.disabled = true;
+
+        button.textContent =
+          "Ուղարկվում է...";
+
+
+        try {
+
+          const response =
+            await fetch(
+              "/api/rsvp",
+              {
+                method: "POST",
+
+                headers: {
+                  "Content-Type":
+                    "application/json"
+                },
+
+                body:
+                  JSON.stringify(data)
+              }
+            );
+
+
+          const result =
+            await response.json();
+
+
+          if (!response.ok) {
+            throw new Error(
+              result.message ||
+              "Սխալ տեղի ունեցավ"
+            );
+          }
+
+
+          formMessage.innerHTML = `
+
+            <div style="
+              margin-top:20px;
+              padding:16px;
+              background:#edf8ef;
+              color:#387044;
+              border-radius:10px;
+              text-align:center;
+              line-height:1.7;
+            ">
+
+              ❤️ Շնորհակալություն,
+              ${escapeHtml(data.name)}!
+
+              <br>
+
+              Ձեր մասնակցությունը
+              հաջողությամբ հաստատվեց։
+
+            </div>
+
+          `;
+
+
+          rsvpForm.reset();
+
+
+        } catch (error) {
+
+          console.error(error);
+
+
+          formMessage.innerHTML = `
+
+            <div style="
+              margin-top:20px;
+              padding:16px;
+              background:#fff0f0;
+              color:#a33;
+              border-radius:10px;
+              text-align:center;
+            ">
+
+              Չհաջողվեց ուղարկել տվյալները։
+              Խնդրում ենք կրկին փորձել։
+
+            </div>
+
+          `;
+
+
+        } finally {
+
+          button.disabled = false;
+
+          button.textContent =
+            "Հաստատել մասնակցությունը";
+
+        }
+
+      }
+    );
+
+
+    /* ==========================================
+       SECURITY
+    ========================================== */
+
+    function escapeHtml(text) {
+
+      return String(text)
+
+        .replace(
+          /&/g,
+          "&amp;"
+        )
+
+        .replace(
+          /</g,
+          "&lt;"
+        )
+
+        .replace(
+          />/g,
+          "&gt;"
+        )
+
+        .replace(
+          /"/g,
+          "&quot;"
+        )
+
+        .replace(
+          /'/g,
+          "&#039;"
+        );
+
+    }
+
+
+    /* ==========================================
+       FALLING PETALS
+    ========================================== */
+
+    function createPetal() {
+
+      const petal =
+        document.createElement("div");
+
+
+      petal.className =
+        "petal";
+
+
+      petal.style.left =
+        Math.random() * 100 + "vw";
+
+
+      petal.style.animationDuration =
+        5 + Math.random() * 7 + "s";
+
+
+      petal.style.opacity =
+        .3 + Math.random() * .7;
+
+
+      document
+        .querySelector(".hero")
+        .appendChild(petal);
+
+
+      setTimeout(
+        () => petal.remove(),
+        13000
+      );
+
+    }
+
+
+    setInterval(
+      createPetal,
+      700
+    );
+
+  </script>
+
+</body>
+</html>
